@@ -20,19 +20,34 @@ body, html {
     overflow-x: hidden !important;
 }
 
-p {
-	line-height: 1.7em;
-	font-size: 1em;
+@font-face {
+    font-family:'billy_ohioregular';
+    src: url('../fonts/Billy Ohio.tff') format('woff2'),
+         url('../fonts/billy_ohio-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-p, a, li {
-	font-family: 'Poppins', sans-serif;
-	color: #4c4c4c;
+p {
+    font-size: 13px;
+    line-height: 1.6em;
+    font-family: 'Lato', sans-serif;
+    color: #767676;
+}
+
+body, html, h1, h2, h3, h4, h5, h6 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+    color: #414141;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Raleway', sans-serif;
-	text-align: center;
+    overflow-y: hidden;
 }
 
 .container-2 {
@@ -51,8 +66,8 @@ h1, h2, h3, h4, h5, h6 {
 	top: 0;
 	right: 0;
 	background: transparent;
-    border-bottom: 5px solid var(--primary);
-    height: 100px;
+	height: 90px;
+	width: 100%;
 }
 
 /* hidden desktop elements */
@@ -88,7 +103,6 @@ h1, h2, h3, h4, h5, h6 {
     overflow: visible;
     position: relative;
 	z-index: 2000;
-	margin-top: 10px;
 }
 .hamburger:hover {
     opacity: 0.7;
@@ -99,14 +113,14 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
 }
 .hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::before, .hamburger.is-active .hamburger-inner::after {
-    background-color: #000;
+    background-color: #fff;
 }
 .hamburger-box {
     width: 30px;
     height: 24px;
     display: inline-block;
     position: relative;
-    z-index: 2000;
+    z-index: 4000;
 }
 .hamburger-inner {
     display: block;
@@ -206,6 +220,10 @@ h1, h2, h3, h4, h5, h6 {
 	width: 30px;
 }
 
+#menu-button {
+	z-index: 4000;
+}
+
 /*-- -------------------------- -->
 <---         NAVIGATION         -->
 <--- -------------------------- -*/
@@ -214,11 +232,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Hidden Elements */
 .navbar-menu img {
 	display: none;
-}
-
-/* Top Mobile Navigation */
-.mobile-wrapper {
-	height: 70px;
 }
 
 .mobile-nav {
@@ -233,21 +246,29 @@ h1, h2, h3, h4, h5, h6 {
 	    -ms-flex-pack: center;
 	        justify-content: center;
 	height: 100%;
+	width: 100%;
 }
 
 .hamburger {
 	position: absolute;
 	right: 2em;
+	top: 33px;
+}
+
+#menu-button {
+	min-width: 30px !important;
 }
 
 /* Navigation Links */
 
 .mobile-wrapper img {
 	height: 55px;
+	position: relative;
+	z-index: 100;
 }
 
 .navbar-menu {
-	background: #f5f5f5;
+	background: rgba(0, 0, 0, 1);
 	width: 0;
 	position: absolute;
 	right: 0;
@@ -277,10 +298,12 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	text-align: right;
 	list-style: none;
+	overflow: hidden;
 }
 
 .side-nav ul li {
 	margin-bottom: 20px;
+	overflow: hidden;
 }
 
 .side-nav a {
@@ -292,12 +315,107 @@ h1, h2, h3, h4, h5, h6 {
 	-webkit-transition-delay: .2s;
 	     -o-transition-delay: .2s;
 	        transition-delay: .2s;
-	opacity: 0;
+    opacity: 0;
+	color: rgba(255, 255, 255, .8);
+	font-size: 1.3em;
 }
 
 .active-menu {
-	border-right: 4px solid var(--primary);
-	color: var(--primary);
+	color: #c47625 !important;
+}
+
+/* Core Styles */
+.container {
+    padding: 0 1.5em;
+}
+
+#nav-topper {
+    display: none;
+}
+
+#noScroll {
+    overflow: scroll;
+}
+
+#desktop-position {
+    display: none;
+}
+
+#desktop-partners {
+    display: none;
+}
+
+.quote,
+.call {
+    display: none;
+}
+
+
+#logo {
+    display: none;
+}
+
+#call-strip {
+    display: none;
+}
+
+.button-solid {
+    display: inline-block;
+    background: #DB170D;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #DB170D;
+    font-size: 15px;
+    margin: 10px 0;
+    padding: 12px 40px;
+    color: #FFFFFF;
+    text-decoration: none;
+    animation-delay: 0.6s;
+    border-radius: 5px;
+    white-space: nowrap;
+    float: left;
+}
+
+.button-solid a:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #DB170D;
+    transition: background 0.4s ease 0s;
+    transition-property: background;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    cursor: pointer;
+}
+
+.button-transparent {
+    display: inline-block;
+    background: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #fff;
+    font-size: 15px;
+    margin: 10px 0;
+    padding: 6px 30px;
+    color: #FFFFFF;
+    text-decoration: none;
+    animation-delay: 0.6s;
+    border-radius: 25%;
+    white-space: nowrap;
+    float: left;
+    height: 40px;
+}
+
+.button-transparent a:hover {
+    background: #fff;
+    border-color: #fff;
+    color: #DB170D;
+    transition: background 0.4s ease 0s;
+    transition-property: background;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    cursor: pointer;
 }
 
 /*-- -------------------------- -->
@@ -458,8 +576,21 @@ ul {
     cursor: pointer;
 }
 
+@media screen and (min-width: 500px) and (max-width: 1024px) {
+
+    .contact-left p {
+        width: 400px;
+    }
+
+}
+
 /* Desktop */
 @media screen and (min-width: 1025px) {
+
+	.section {
+		padding-top: 100px !important;
+		padding-bottom: 100px !important;
+	}
 
 	/* Hidden Elements */
 	.mobile-wrapper {
@@ -489,7 +620,8 @@ ul {
 		-webkit-box-pack: center;
 		    -ms-flex-pack: center;
 		        justify-content: center;
-		height: 100px;
+        height: 100px;
+        background: rgba(0, 0, 0, .7);
 	}
 
 	.navbar-menu {
@@ -506,7 +638,6 @@ ul {
 		        align-items: center;
 		z-index: 100;
 		left: 0;
-		margin-top: 25px;
 		background: none;
 	}
 
@@ -536,7 +667,7 @@ ul {
 		    -ms-flex-pack: end;
 		        justify-content: flex-end;
 		right: 0;
-		top: 0;
+        top: 0;
 	}
 
 	.side-nav ul li {
@@ -589,8 +720,54 @@ ul {
 	}
 
 	.active-menu {
-		border-right: none;
-		border-bottom: 4px solid var(--primary);
+        border-right: none;
+        position: relative;
+		height: auto;
     }
+
+    .nav-li {
+        height: auto;
+        padding-bottom: 30px;
+        padding-top: 30px
+    }
+
+	/*-- -------------------------- -->
+	<---           CONTACT          -->
+	<--- -------------------------- -*/
+
+	#contact {
+		background: url("/images/landing.jpg");
+		background-size: cover;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+    }
+    
+    .contact-flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+
+	.contact-left h3 {
+        margin-bottom: 5px;
+        text-align: left;
+	}
+
+	.contact-left p {
+		width: 400px;
+        margin: auto;
+        text-align: left;
+	}
+
+	.mobile-call {
+		display: none;
+	}
+
+	.desktop-call {
+		display: block;
+	}
     
 }

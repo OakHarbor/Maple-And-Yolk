@@ -6,6 +6,14 @@ var $hamburger = $(".hamburger");
     // Do something else, like open/close menu
   });
 
+
+  var $bannerButton = $("#banner-button");
+  var $banner = $(".banner");
+  $bannerButton.on("click", function(e) {
+    $banner.addClass("none");
+    $bannerButton.addClass("none");
+  });
+
   /* Code for the toggling of the navbar */
 
 let toggleNavStatus = false;
@@ -14,6 +22,7 @@ let toggleNav = function () {
     let getSidebar = document.querySelector(".navbar-menu");
     let getSidebarUL = document.querySelector(".side-nav ul");
     let getSidebarLinks = document.querySelectorAll(".side-nav a");
+    let html = document.querySelector("html");
 
     if (toggleNavStatus === false) {
 
@@ -24,6 +33,7 @@ let toggleNav = function () {
         getSidebar.style.width = "60%";
 
         toggleNavStatus = true;
+        html.style.position = "fixed"
     } 
 
     else if (toggleNavStatus === true) {
@@ -35,5 +45,8 @@ let toggleNav = function () {
         getSidebar.style.width = "0";
 
         toggleNavStatus = false;
+        html.style.position = "initial"
     }
 }
+
+console.log("connected")
